@@ -24,6 +24,8 @@ PluginComponent {
             return "storm"
         if (pluginData.rain === true)
             return "rain"
+        if (pluginData.snow === true)
+            return "snow"
         if (pluginData.fog === true)
             return "fog"
         return pluginData.night === true ? "night" : "day"
@@ -40,6 +42,8 @@ PluginComponent {
             return "thunderstorm";
         if (manualPreset === "rain")
             return "rainy";
+        if (manualPreset === "snow")
+            return "cloudy_snowing";
         if (manualPreset === "fog")
             return "foggy";
         return manualPreset === "night" ? "clear_night" : "clear_day";
@@ -70,10 +74,11 @@ PluginComponent {
 
     function applyPreset(name) {
         saveSetting("autoWeather", false)
-        saveSetting("rain", name === "rain" || name === "storm")
-        saveSetting("fog", name === "fog")
+        saveSetting("rain",    name === "rain" || name === "storm")
+        saveSetting("fog",     name === "fog")
+        saveSetting("snow",    name === "snow")
         saveSetting("thunder", name === "storm")
-        saveSetting("night", name === "night")
+        saveSetting("night",   name === "night")
     }
 
     horizontalBarPill: Component {
@@ -166,10 +171,11 @@ PluginComponent {
 
                     Repeater {
                         model: [
-                            { id: "day", label: "Day", icon: "clear_day" },
-                            { id: "rain", label: "Rain", icon: "rainy" },
+                            { id: "day",   label: "Day",   icon: "clear_day" },
+                            { id: "rain",  label: "Rain",  icon: "rainy" },
                             { id: "storm", label: "Storm", icon: "thunderstorm" },
-                            { id: "fog", label: "Fog", icon: "foggy" },
+                            { id: "snow",  label: "Snow",  icon: "cloudy_snowing" },
+                            { id: "fog",   label: "Fog",   icon: "foggy" },
                             { id: "night", label: "Night", icon: "clear_night" }
                         ]
 
@@ -230,5 +236,5 @@ PluginComponent {
     }
 
     popoutWidth: 420
-    popoutHeight: 570
+    popoutHeight: 610
 }

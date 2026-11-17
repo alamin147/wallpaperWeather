@@ -43,6 +43,13 @@ PluginSettings {
     }
 
     ToggleSetting {
+        settingKey: "snow"
+        label: "Manual snow"
+        description: "Used only when Use DMS weather is off."
+        defaultValue: false
+    }
+
+    ToggleSetting {
         settingKey: "thunder"
         label: "Manual thunder"
         description: "Used only with manual rain."
