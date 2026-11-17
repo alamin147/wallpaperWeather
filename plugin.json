@@ -1,0 +1,17 @@
+{
+  "id": "wallpaperWeather",
+  "name": "Wallpaper Weather",
+  "description": "Live wallpaper weather effects with a DankBar control/status widget, using DMS WeatherService.",
+  "version": "5.0.0",
+  "author": "Al Amin (DMS port), based on RR-CodeBase/omarchy-wallpaper-weather by Ruan Roos",
+  "type": "composite",
+  "capabilities": ["daemon", "dankbar-widget"],
+  "icon": "partly_cloudy_day",
+  "components": {
+    "daemon": "./WeatherDaemon.qml",
+    "widget": "./WeatherBar.qml"
+  },
+  "settings": "./WeatherSettings.qml",
+  "requires_dms": ">=1.5.0",
+  "permissions": ["settings_read", "settings_write"]
+}
